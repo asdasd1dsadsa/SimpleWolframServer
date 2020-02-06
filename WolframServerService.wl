@@ -65,7 +65,7 @@ IndexService = FormPage[
 ];
 
 EvaluationAPI = APIFunction[
-	{{"expr", "Expression"} -> "String"},
+	{{"expr", "Expression"} -> ToExpression},
 	ResponseForm[#expr, "JSON"] &
 ];
 

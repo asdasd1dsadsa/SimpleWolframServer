@@ -56,7 +56,7 @@ ReadNote[] := FormFunction[
 ];
 
 NewNote[] := FormPage[
-	"Note" -> "String",
+	"Note" -> Identity,
 	(
 		AppendTo[$NoteBody, #Note];
 		DumpSave[$NotePath, $NoteBody];
@@ -75,7 +75,7 @@ CallRecurrentEdit[] := CallRecurrentEdit@{}
 RecurrentEdit[] := APIFunction[
 	{
 		"Index" -> <|"Interpreter" -> indexInterpreter, "Required" -> False|>,
-		"Note" -> <|"Interpreter" -> "String", "Required" -> False|>
+		"Note" -> <|"Interpreter" -> Identity, "Required" -> False|>
 	},
 	Switch[{#Index, #Note},
 		{{}, _},
@@ -83,7 +83,7 @@ RecurrentEdit[] := APIFunction[
 		{_Integer, _},
 			CallRecurrentEdit@Range[#Index, Length@$NoteBody],
 		{{__Integer}, _Missing},
-			FormFunction["Note" -> <|"Interpreter" -> "String", "Input" -> $NoteBody[[First@#Index]]|>,
+			FormFunction["Note" -> <|"Interpreter" -> Identity, "Input" -> $NoteBody[[First@#Index]]|>,
 				RecurrentEdit[]
 			],
 		{{__Integer}, _String},
