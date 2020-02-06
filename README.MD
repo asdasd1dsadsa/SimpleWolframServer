@@ -24,16 +24,16 @@ Start a ```SocketListener``` with user-defined configuration. Print some useful 
 * ```MakeFormRules```: Convert body bytes in the ```HTTPRequest``` received to an association. It works for ```FormFunction``` which requires ```HTTPRequestData["FormRules"]```.
 
 ### WolframServerManageTool.wl
-* ```ShutdownServer```
-* ```StartServer```
-* ```ZMQTaskWait```: Hold the main loop to forbid process to exit. It works for StartServer.wls in the command line environment.
+* ```ServerShutdown```
+* ```ServerStart```
+* ```ServerMonitor```: Hold the main loop to forbid process to exit. It works for StartServer.wls in the command line environment.
 * ```ShowLog```: Import the log file in the server directory as a string. The default log file is "nohup.out".
 
 ### WolframServerUserService.wl
 There is a simple note service implemented, which is a string list that can be operated by the web UI provided by some ```FormFunction```s.
 
 ### TestClient.wls
-Access the root path of local host on port 8080.
+Send a request to the root path of local host on port 8080.
 
 ### CopyResource.wls
 Copy cloud resources to be localized from Wolfram Engine's installation directory. It works for ```WolframServerTool`ResourceLocalize```.
