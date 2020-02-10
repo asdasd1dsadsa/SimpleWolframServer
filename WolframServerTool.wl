@@ -37,7 +37,7 @@ MakeFormRules[request_HTTPRequest] := With[
 					StringTrim@FromCharacterCode[#, "UTF-8"],
 					StringReplace[multipart -> "--"~~boundaryPattern]@req["ContentType"]
 				] &,
-			True,
+			_,
 				Identity
 		],
 		request,
